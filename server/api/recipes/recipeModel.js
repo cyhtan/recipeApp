@@ -7,8 +7,8 @@ var RecipeSchema = new mongoose.Schema({
     description    : { type: String },
     tags           : [],
     ingredients    : [], // name: _ , amount: _
-    containsDairy  : { type: Boolean },
-    containsGluten : { type: Boolean },
+    glutenFree     : { type: Boolean },
+    dairyFree      : { type: Boolean },
     created        : { type: Date },
     updated        : { type: Date }
 });
