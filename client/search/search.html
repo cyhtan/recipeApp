@@ -1,0 +1,47 @@
+
+<nav class="control">
+
+  <input type="text" placeholder="Search" ng-model="search.byName">
+  <br>
+
+  <label>Mealtime:
+    <select ng-model="search.mealtime"> 
+      <option value="" selected>Any</option>
+      <option value="breakfast">Breakfast</option>
+      <option value="lunch">Lunch</option>
+      <option value="dinner">Dinner</option>
+    </select>
+  </label>
+  <br>
+
+  <label>Dairy Free<input type="checkbox" ng-model="filters.dairyFree"></label>
+  <br>
+
+  <label>Gluten Free<input type="checkbox" ng-model="filters.glutenFree"></label>
+  <br>
+
+  <input type="text" ng-model="tagName">
+  <button ng-click="addTag(tagName)">Add Tag</button>
+  <div>
+    <div class="pill" ng-repeat="tag in filters.tags" ng-click="filters.tags.splice($index,1)"> {{tag}}</div>
+  </div>
+
+  <input type="text" ng-model="ingredName">
+  <button ng-click="addIngred(ingredName)">Add Ingredient</button>
+  <br>
+  <div>
+    <div class="pill" ng-repeat="ingred in filters.ingredients" ng-click="filters.ingredients.splice($index,1)">{{ingred}}</div>
+  </div>
+</nav>
+
+<main class="content">
+  <div class="recipe" ng-repeat="recipe in recipes | filter: search.byName">
+    <h3>{{ recipe.name }} </h3>
+    <ul>
+      <li ng-repeat="ingredient in recipe.ingredients">
+        {{ ingredient.name }}: {{ ingredient.amount }} 
+      </li>
+    </ul>
+
+  </div>
+</main>
