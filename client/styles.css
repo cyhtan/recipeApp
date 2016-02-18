@@ -1,0 +1,43 @@
+.container {
+  background-color: #EEE;
+  margin: 0 auto;
+}
+
+/* SEARCH CONTROLS */
+.control {
+  background-color: #CCC;
+  width: 30%;
+  border-radius: 10px;
+  float: left;
+}
+.control input[type="text"] {
+  width: 50%;
+  margin: 10px;
+}
+.control * {
+  margin: 10px;
+}
+
+
+/* SEARCH CONTENT */
+.content {
+  background-color: #DDD;
+  display: inline-block;
+  width: 70%;
+}
+
+.recipe {
+  background-color: #EEE;
+  margin: 35px;
+  padding: 10px;
+  padding-left: 40px;
+  border-radius: 50px;
+}
+
+.pill {
+  background-color: #85AAB5;
+  padding: 4px;
+  margin: 4px;
+  border-radius: 50px;
+  display: inline-block;
+}
