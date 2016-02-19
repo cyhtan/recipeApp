@@ -22,6 +22,29 @@ angular.module('search.controller', [])
   };
 
 
+  $scope.filterName = function(recipe, index, recipes){
+    return new RegExp($scope.byName, 'i').test(recipe.name);
+  };
+  
+  $scope.filterIngreds = function(recipe, index, recipes){
+    var ingredFilters = $scope.filters.ingredients;
+    var ingreds = recipe.ingredients.map(function(ingredient){ return ingredient.name; });
+    var i = -1;
+    while (++i < ingredFilters.length) {
+      if (ingreds.indexOf(ingredFilters[i]) === -1) return false;
+    }
+    return true;
+  };  
+
+  $scope.filterTags = function(recipe, index, recipes){
+    var tagFilters = $scope.filters.tags;
+    var i = -1;
+    while (++i < tagFilters.length) {
+      if (recipe.tags.indexOf(tagFilters[i]) === -1) return false;
+    }
+    return true;
+  };
+
 
   Recipe.getAll()
     .then(function(res){

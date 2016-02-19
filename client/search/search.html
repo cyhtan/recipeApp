@@ -1,11 +1,13 @@
-
+<!-- 
+ngRepeat: class in (filterResults = (classes | filter:filterSearch | filter:filterDropdown) ) | limitTo:limit track by $index 
+-->
 <nav class="control">
 
-  <input type="text" placeholder="Search" ng-model="search.byName">
+  <input type="text" placeholder="Search By Name" ng-model="byName">
   <br>
 
   <label>Mealtime:
-    <select ng-model="search.mealtime"> 
+    <select ng-model="mealtime"> 
       <option value="" selected>Any</option>
       <option value="breakfast">Breakfast</option>
       <option value="lunch">Lunch</option>
@@ -35,7 +37,7 @@
 </nav>
 
 <main class="content">
-  <div class="recipe" ng-repeat="recipe in recipes | filter: search.byName">
+  <div class="recipe" ng-repeat="recipe in recipes | filter: filterName | filter: filterIngreds | filter: filterTags">
     <h3>{{ recipe.name }} </h3>
     <ul>
       <li ng-repeat="ingredient in recipe.ingredients">
