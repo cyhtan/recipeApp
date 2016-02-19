@@ -2,6 +2,7 @@ angular.module('app', [
   'ui.router',
   'search.controller',
   'recipe.factory',
+  'filter.factory',
   'create-recipe.controller'
   ])
 
