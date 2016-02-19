@@ -9,21 +9,17 @@
   width: 30%;
   border-radius: 10px;
   float: left;
+  padding: 10px;
 }
 .control input[type="text"] {
   width: 50%;
-  margin: 10px;
 }
-.control * {
-  margin: 10px;
-}
-
 
 /* SEARCH CONTENT */
 .content {
   background-color: #DDD;
   display: inline-block;
-  width: 70%;
+  width: 65%;
 }
 
 .recipe {
