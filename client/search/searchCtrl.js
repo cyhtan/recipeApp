@@ -6,8 +6,15 @@ angular.module('search.controller', [])
   $scope.filters = {
     tags: [],
     ingredients: [],
-    glutenFree: false,
-    dairyFree: false
+    mealtime    : {
+                    breakfast : false,
+                    lunch     : false,
+                    dinner    : false
+                  },
+    specialDiet: {
+                    glutenFree : false,
+                    dairyFree  : false
+                 }
   };
 
   $scope.addIngred = function (ingredName) {
@@ -41,6 +48,24 @@ angular.module('search.controller', [])
     var i = -1;
     while (++i < tagFilters.length) {
       if (recipe.tags.indexOf(tagFilters[i]) === -1) return false;
+    }
+    return true;
+  };
+
+  $scope.filterMealtime = function(recipe, index, recipes){
+    var mealtimeFilters = $scope.filters.mealtime;
+    var key;
+    for (key in mealtimeFilters) {
+      if (mealtimeFilters[key] && !recipe.mealtime[key]) return false;
+    }
+    return true;
+  };
+
+  $scope.filterSpecial = function(recipe, index, recipes){
+    var specialDietFilters = $scope.filters.specialDiet;
+    var key;
+    for (key in specialDietFilters) {
+      if (specialDietFilters[key] && !recipe.specialDiet[key]) return false;
     }
     return true;
   };

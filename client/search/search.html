@@ -6,20 +6,15 @@ ngRepeat: class in (filterResults = (classes | filter:filterSearch | filter:filt
   <input type="text" placeholder="Search By Name" ng-model="byName">
   <br>
 
-  <label>Mealtime:
-    <select ng-model="mealtime"> 
-      <option value="" selected>Any</option>
-      <option value="breakfast">Breakfast</option>
-      <option value="lunch">Lunch</option>
-      <option value="dinner">Dinner</option>
-    </select>
-  </label>
+  <label>Breakfast<input type="checkbox" ng-model="filters.mealtime.breakfast"></label>
+  <label>Lunch<input type="checkbox" ng-model="filters.mealtime.lunch"></label>
+  <label>Dinner<input type="checkbox" ng-model="filters.mealtime.dinner"></label>
   <br>
 
-  <label>Dairy Free<input type="checkbox" ng-model="filters.dairyFree"></label>
+  <label>Dairy Free<input type="checkbox" ng-model="filters.specialDiet.dairyFree"></label>
   <br>
 
-  <label>Gluten Free<input type="checkbox" ng-model="filters.glutenFree"></label>
+  <label>Gluten Free<input type="checkbox" ng-model="filters.specialDiet.glutenFree"></label>
   <br>
 
   <input type="text" ng-model="tagName">
@@ -37,8 +32,9 @@ ngRepeat: class in (filterResults = (classes | filter:filterSearch | filter:filt
 </nav>
 
 <main class="content">
-  <div class="recipe" ng-repeat="recipe in recipes | filter: filterName | filter: filterIngreds | filter: filterTags">
+  <div class="recipe" ng-repeat="recipe in recipes | filter: filterName | filter: filterIngreds | filter: filterTags | filter: filterMealtime | filter: filterSpecial">
     <h3>{{ recipe.name }} </h3>
+    Tags: <div class="pill" ng-repeat="tag in recipe.tags">{{tag}}</div>
     <ul>
       <li ng-repeat="ingredient in recipe.ingredients">
         {{ ingredient.name }}: {{ ingredient.amount }} 
