@@ -1,7 +1,8 @@
 angular.module('app', [
   'ui.router',
   'search.controller',
-  'recipe.factory'
+  'recipe.factory',
+  'create-recipe.controller'
   ])
 
 /*
@@ -27,6 +28,15 @@ angular.module('app', [
         'content': {
           templateUrl: 'search/search.html',
           controller: 'SearchCtrl',
+        }
+      }
+    })
+    .state('createRecipe', {
+      url: '/create-recipe',
+      views: {
+        'content': {
+          templateUrl: 'create-recipe/create-recipe.html',
+          controller: 'CreateRecipeCtrl',
         }
       }
     })

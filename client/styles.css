@@ -41,3 +41,9 @@
   border-radius: 50px;
   display: inline-block;
 }
+
+/* CREATE RECIPE */
+
+.create-recipe-container input[type="text"], textarea {
+  margin: 10px;
+}

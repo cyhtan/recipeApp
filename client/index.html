@@ -11,6 +11,11 @@
 
 <body ng-app="app">
   
+  <header>
+    <a ui-sref="createRecipe">Create a new Recipe</a>
+    <a ui-sref="search">Search Recipes</a>
+  </header>
+
   <div class="container" ui-view="content">
     <!-- Main Content -->
   </div>
@@ -27,8 +32,10 @@
   <script src="services/recipeFactory.js"></script>
   <!-- Controllers -->
   <script src="search/searchCtrl.js"></script>
+  <script src="create-recipe/createRecipeCtrl.js"></script>
 
   <script src="app.js"></script>
 
 </body>
+
 </html>

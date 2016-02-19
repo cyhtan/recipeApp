@@ -1,0 +1,50 @@
+<div class="create-recipe-container" >
+
+  <input type="text" placeholder="Name" ng-model="recipe.name">
+  <br>
+  <textarea placeholder="Description" ng-model="recipe.description" id="" cols="50" rows="3"></textarea>
+  <br>
+
+  <label>Breakfast<input type="checkbox" ng-model="recipe.mealtime.breakfast"></label>
+  <label>Lunch<input type="checkbox"     ng-model="recipe.mealtime.lunch"></label>
+  <label>Dinner<input type="checkbox"    ng-model="recipe.mealtime.dinner"></label>
+  <br>
+
+  <label>Dairy Free<input type="checkbox"  ng-model="recipe.specialDiet.dairyFree"></label>
+  <label>Gluten Free<input type="checkbox" ng-model="recipe.specialDiet.glutenFree"></label>
+  <br>
+
+  <input type="text" ng-model="tagName">
+  <button ng-click="addTag(tagName)">Add Tag</button>
+  <br>
+  <div>
+    <div class="pill" ng-repeat="tag in recipe.tags" ng-click="recipe.tags.splice($index,1)"> {{tag}}</div>
+  </div>
+
+  <input type="text" ng-model="ingredName" placeholder="Name">
+  <input type="text" ng-model="ingredAmt" placeholder="Amount" style="width:40px;">
+  <select ng-model="ingredUnit"> 
+    <option value="" selected>Select Unit</option>
+    <option value="cups">Cups</option>
+    <option value="tablespoons">Tablespoons</option>
+    <option value="teaspoons">Teaspoons</option>
+  </select>
+
+  <button ng-click="addIngred(ingredName, ingredAmt, ingredUnit)">Add Ingredient</button>
+  <br>
+  <div>
+    <table style="border:1px solid black">
+      <th>Name</th>
+      <th>Amount</th>
+      <th>Unit</th>
+      <tr ng-repeat="ingred in recipe.ingredients" ng-click="recipe.ingredients.splice($index,1)">
+        <td>{{ingred.name}}</td>
+        <td>{{ingred.amount}}</td>
+        <td>{{ingred.unit}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <button ng-click="submitRecipe()">Submit</button>
+
+</div>
