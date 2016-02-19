@@ -26,4 +26,16 @@ angular.module('search.controller', [])
       $scope.recipes = res.data;
     });
 
-}]);
+}])
+
+// .directive('click-to-edit', [
+//   function(){
+//     return {
+//       restrict: "A",
+//       link: function(scope, element, attrs){
+        
+//       }
+//     };
+//   }
+
+// ]);

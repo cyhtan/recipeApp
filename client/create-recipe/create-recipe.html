@@ -4,7 +4,7 @@
   <br>
   <textarea placeholder="Description" ng-model="recipe.description" id="" cols="50" rows="3"></textarea>
   <br>
-  
+
   <span>Served for: </span>
   <label>Breakfast<input type="checkbox" ng-model="recipe.mealtime.breakfast"></label>
   <label>Lunch<input type="checkbox"     ng-model="recipe.mealtime.lunch"></label>
@@ -38,10 +38,28 @@
       <th>Name</th>
       <th>Amount</th>
       <th>Unit</th>
-      <tr ng-repeat="ingred in recipe.ingredients" ng-click="recipe.ingredients.splice($index,1)">
-        <td>{{ingred.name}}</td>
-        <td>{{ingred.amount}}</td>
-        <td>{{ingred.unit}}</td>
+      <tr ng-repeat="ingred in recipe.ingredients">
+        <td ng-click="edit.index = $index;"> 
+          <span  ng-hide="edit.index === $index">{{ingred.name}}</span> 
+          <input ng-show="edit.index === $index" type="text" ng-model="ingred.name">
+        </td>
+        <td ng-click="edit.index = $index; log()">
+          <span ng-hide="edit.index === $index">{{ingred.amount}}</span> 
+          <input ng-show="edit.index === $index" type="text"  ng-model="ingred.amount">
+        </td>
+        <td ng-click="edit.index = $index; log()">
+          <span ng-hide="edit.index === $index">{{ingred.unit}}</span> 
+            <select ng-show="edit.index === $index"  ng-model="ingred.unit"> 
+              <option value="" selected>Select Unit</option>
+              <option value="cups">Cups</option>
+              <option value="tablespoons">Tablespoons</option>
+              <option value="teaspoons">Teaspoons</option>
+            </select>
+        </td>
+        <td>
+          <button ng-show="edit.index === $index" ng-click="edit.index = null">Done</button>
+          <button ng-hide="edit.index === $index" ng-click="recipe.ingredients.splice($index, 1)">Delete</button>
+        </td>
       </tr>
     </table>
   </div>

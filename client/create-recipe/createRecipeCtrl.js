@@ -1,6 +1,6 @@
 angular.module('create-recipe.controller', [])
 
-.controller('CreateRecipeCtrl', ['$scope', 'Recipe', function($scope, Recipe){
+.controller('CreateRecipeCtrl', ['$scope', '$state', 'Recipe', function($scope, $state, Recipe){
   
   $scope.recipe = {
     name        : '', 
@@ -38,6 +38,14 @@ angular.module('create-recipe.controller', [])
 
   $scope.submitRecipe = function () {
     Recipe.submitRecipe($scope.recipe);
+    $state.go('search');
   };
+
+  $scope.log = function () { console.log($scope);}
+
+  $scope.edit = {
+   index: null
+  };
+
 
 }]);
