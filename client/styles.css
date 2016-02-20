@@ -1,7 +1,19 @@
+
 .container {
   background-color: #EEE;
   margin: 0 auto;
 }
+
+/* HEADER */
+nav a {
+  background-color: #DDD;
+  padding: 10px;
+}
+
+header {
+  margin: 10px;
+}
+
 
 /* SEARCH CONTROLS */
 .control {
@@ -42,4 +54,15 @@
 
 .create-recipe-container input[type="text"], textarea {
   margin: 10px;
+}
+
+.create-recipe-ingred-table {
+  border:1px solid black;
+}
+
+
+.create-recipe-ingred-table td, th {
+  border:1px solid black;
+  width: 140px;
+  padding: 5px;
 }
