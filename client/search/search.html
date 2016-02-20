@@ -1,6 +1,4 @@
-<!-- 
-ngRepeat: class in (filterResults = (classes | filter:filterSearch | filter:filterDropdown) ) | limitTo:limit track by $index 
--->
+
 <nav class="control">
 
   <input type="text" placeholder="Search By Name" ng-model="filters.byName">
@@ -30,14 +28,20 @@ ngRepeat: class in (filterResults = (classes | filter:filterSearch | filter:filt
 </nav>
 
 <main class="content">
-  <div class="recipe" ng-repeat="recipe in recipes | filter: filterName | filter: filterIngreds | filter: filterTags | filter: filterMealtime | filter: filterSpecial">
-    <h3>{{ recipe.name }} </h3>
-    Tags: <div class="pill" ng-repeat="tag in recipe.tags">{{tag}}</div>
-    <ul>
-      <li ng-repeat="ingredient in recipe.ingredients">
-        {{ ingredient.name }}: {{ ingredient.amount }} 
-      </li>
-    </ul>
 
-  </div>
+  <uib-accordion>
+    <uib-accordion-group ng-repeat="recipe in recipes | filter: filterName | filter: filterIngreds | filter: filterTags | filter: filterMealtime | filter: filterSpecial">
+      <uib-accordion-heading>{{ recipe.name }}</uib-accordion-heading>
+      Tags: <div class="pill" ng-repeat="tag in recipe.tags">{{tag}}</div>
+      <ul>
+        <li ng-repeat="ingredient in recipe.ingredients">
+          {{ ingredient.name }}: {{ ingredient.amount }} 
+        </li>
+      </ul>
+    </uib-accordion-group>
+
+  </uib-accordion>
+
+
+
 </main>
