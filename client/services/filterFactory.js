@@ -20,7 +20,6 @@ angular.module('filter.factory', [])
   };
 
   Filter.filterName = function(recipe, index, recipes){
-    console.log(currentFilters);
     return new RegExp(currentFilters.byName, 'i').test(recipe.name);
   };
   
